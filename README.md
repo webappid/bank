@@ -1,5 +1,5 @@
 # Banks
-Laravel lib for indonesian banks reverences.
+Laravel lib for indonesian banks references.
 
 ## Install Package
 ### Install package via composer

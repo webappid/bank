@@ -1,0 +1,45 @@
+{
+    "name": "webappid/bank",
+    "description": "Daftar List Bank Di Indonesia",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dyan Galih",
+            "email": "dyan.galih@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "WebAppId\\Bank\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WebAppId\\Bank\\Tests\\": "src/tests"
+        }
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "illuminate/support": "~5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "7.2.6",
+        "squizlabs/php_codesniffer": "3.*",
+        "orchestra/testbench": "~3.5",
+        "mockery/mockery": "dev-master@dev"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "WebAppId\\Bank\\ServiceProvider"
+            ],
+            "aliases": {
+                "Bank": "WebAppId\\Bank\\Facade"
+            }
+        }
+    }
+}

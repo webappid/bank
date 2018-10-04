@@ -1,10 +1,10 @@
-# Professions
-Laravel package for indonesian profession list. 
+# Banks
+Laravel lib for indonesian banks reverences.
 
 ## Install Package
 ### Install package via composer
 ```
-composer require webappid/profession
+composer require webappid/bank
 ```
 
 ### Migration
@@ -14,7 +14,7 @@ php artisan migrate
 
 ### Seed the data
 ```
-php artisan webappid:profession:seed
+php artisan webappid:bank:seed
 ```
 
 Note: just put the seed method into your autodeploy, it will add the new data if any and update the current data if needed.

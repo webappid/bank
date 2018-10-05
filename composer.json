@@ -30,9 +30,6 @@
         "mockery/mockery": "dev-master@dev"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.0-dev"
-        },
         "laravel": {
             "providers": [
                 "WebAppId\\Bank\\ServiceProvider"

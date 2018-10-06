@@ -10,7 +10,7 @@ class BankSeeder extends Seeder
     {
         $csvToArray = new CsvtoArray;
         $file = __DIR__ . '/../resources/csv/bank.csv';
-        $header = array('code','name');
+        $header = array('code','name', 'status');
         $data = $csvToArray->csvToArray($file, $header, '|');
         $collection = collect($data);
         $bank = new Bank;

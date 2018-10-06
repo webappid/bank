@@ -22,10 +22,12 @@ class CreateBanksTable extends Migration
             $table->string('code')
                 ->index()
                 ->unique()
-                ->comment('Banks code');
+                ->comment('Bank code');
             $table->string('name')
                 ->index()
-                ->comment('Banks name');
+                ->comment('Bank name');
+            $table->enum('status',['y','n'])
+                ->comment('Bank status');
         
             $table->timestamps();
 

@@ -25,6 +25,7 @@ class Bank extends Model
             $bank = new self();
             $bank->code = $request->code;
             $bank->name = $request->name;
+            $bank->status = $request->status;
             $bank->save();
             return $bank;
         } catch (QueryException $e) {
@@ -70,6 +71,7 @@ class Bank extends Model
         if ($bank != null) {
             $bank->code = $request->code;
             $bank->name = $request->name;
+            $bank->status = $request->status;
             $bank->save();
             return $bank;
         }

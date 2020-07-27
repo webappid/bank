@@ -8,9 +8,6 @@ class ServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        $this->app->bind('bank', function () {
-            return new Bank;
-        });
         $this->commands(\WebAppId\Bank\Commands\SeedCommand::class);
     }
     public function boot()

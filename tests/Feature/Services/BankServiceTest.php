@@ -51,6 +51,13 @@ class BankServiceTest extends TestCase
         self::assertTrue($result->status);
     }
 
+    public function testGetByCode()
+    {
+        $contentServiceResponse = $this->testStore();
+        $result = $this->container->call([$this->bankService, 'getByCode'], ['code' => $contentServiceResponse->bank->code]);
+        self::assertTrue($result->status);
+    }
+
     private function getDummy(int $number = 0): BankServiceRequest
     {
         $bankRepositoryRequest = $this->container->call([$this->bankRepositoryTest, 'getDummy'], ['no' => $number]);

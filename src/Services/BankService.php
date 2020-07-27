@@ -85,6 +85,24 @@ class BankService extends BaseService implements BankServiceContract
     /**
      * @inheritDoc
      */
+    public function getByCode(string $code, BankRepository $bankRepository, BankServiceResponse $bankServiceResponse): BankServiceResponse
+    {
+        $result = $this->container->call([$bankRepository, 'getByCode'], ['code' => $code]);
+        if ($result != null) {
+            $bankServiceResponse->status = true;
+            $bankServiceResponse->message = 'Data Found';
+            $bankServiceResponse->bank = $result;
+        } else {
+            $bankServiceResponse->status = false;
+            $bankServiceResponse->message = 'Data Not Found';
+        }
+
+        return $bankServiceResponse;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function delete(int $id, BankRepository $bankRepository): bool
     {
         return $this->container->call([$bankRepository, 'delete'], ['id' => $id]);

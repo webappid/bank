@@ -66,6 +66,13 @@ class BankRepositoryTest extends TestCase
         self::assertNotEquals(null, $result);
     }
 
+    public function testGetByCode()
+    {
+        $bank = $this->testStore();
+        $result = $this->container->call([$this->bankRepository, 'getByCode'], ['code' => $bank->code]);
+        self::assertNotEquals(null, $result);
+    }
+
     public function testDelete()
     {
         $bank = $this->testStore();

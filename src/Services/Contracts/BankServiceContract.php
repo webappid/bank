@@ -48,6 +48,14 @@ interface BankServiceContract
     public function getById(int $id, BankRepository $bankRepository, BankServiceResponse $bankServiceResponse): BankServiceResponse;
 
     /**
+     * @param string $code
+     * @param BankRepository $bankRepository
+     * @param BankServiceResponse $bankServiceResponse
+     * @return BankServiceResponse
+     */
+    public function getByCode(string $code, BankRepository $bankRepository, BankServiceResponse $bankServiceResponse): BankServiceResponse;
+
+    /**
      * @param int $id
      * @param BankRepository $bankRepository
      * @return bool
@@ -61,12 +69,12 @@ interface BankServiceContract
      * @param int $length
      * @return BankServiceResponseList
      */
-    public function get(BankRepository $bankRepository, BankServiceResponseList $bankServiceResponseList,int $length = 12, string $q = null): BankServiceResponseList;
+    public function get(BankRepository $bankRepository, BankServiceResponseList $bankServiceResponseList, int $length = 12, string $q = null): BankServiceResponseList;
 
     /**
      * @param string $q
      * @param BankRepository $bankRepository
      * @return int
      */
-    public function getCount(BankRepository $bankRepository, string $q = null):int;
+    public function getCount(BankRepository $bankRepository, string $q = null): int;
 }

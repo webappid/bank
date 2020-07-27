@@ -46,14 +46,14 @@ class BankRepository implements BankRepositoryContract
     protected function getJoin(Bank $bank, string $q = null): Builder
     {
         return $bank
-                ->when($q != null, function ($query) use ($q) {
-                        return $query->where('code', 'LIKE', '%' . $q . '%');
-                    });
+            ->when($q != null, function ($query) use ($q) {
+                return $query->where('code', 'LIKE', '%' . $q . '%');
+            });
     }
 
     /**
-    * @return array
-    */
+     * @return array
+     */
     protected function getColumn(): array
     {
         return
@@ -64,7 +64,7 @@ class BankRepository implements BankRepositoryContract
                 'banks.status',
                 'banks.created_at',
                 'banks.updated_at'
-                ];
+            ];
     }
 
     /**
@@ -73,12 +73,12 @@ class BankRepository implements BankRepositoryContract
     public function update(int $id, BankRepositoryRequest $bankRepositoryRequest, Bank $bank): ?Bank
     {
         $bank = $bank->find($id);
-        if($bank!=null){
+        if ($bank != null) {
             try {
                 $bank = Lazy::copy($bankRepositoryRequest, $bank);
                 $bank->save();
                 return $bank;
-            }catch (QueryException $queryException){
+            } catch (QueryException $queryException) {
                 report($queryException);
             }
         }
@@ -96,12 +96,20 @@ class BankRepository implements BankRepositoryContract
     /**
      * @inheritDoc
      */
+    public function getByCode(string $code, Bank $bank): ?Bank
+    {
+        return $this->getJoin($bank)->where('code', $code)->first($this->getColumn());
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function delete(int $id, Bank $bank): bool
     {
         $bank = $this->getById($id, $bank);
-        if($bank!=null){
+        if ($bank != null) {
             return $bank->delete();
-        }else{
+        } else {
             return false;
         }
     }

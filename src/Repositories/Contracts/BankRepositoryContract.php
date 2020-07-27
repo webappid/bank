@@ -41,6 +41,13 @@ interface BankRepositoryContract
     public function getById(int $id, Bank $bank): ?Bank;
 
     /**
+     * @param string $code
+     * @param Bank $bank
+     * @return Bank|null
+     */
+    public function getByCode(string $code, Bank $bank): ?Bank;
+
+    /**
      * @param int $id
      * @param Bank $bank
      * @return bool
